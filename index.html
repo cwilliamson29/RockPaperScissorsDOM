@@ -7,7 +7,7 @@
         	
 	</head>
 	
-	<body>
+	<body onload="clearGame(), clearWriter(welcome, startWidth)">
 		<div id="container">
 
 			<!--ROBOT BOX BEGIN-->
@@ -45,7 +45,7 @@
 			<div id="PlayerChoiceBox">
 				<div id="playRounds">
 					<label id="roundsLabel">Number Of Rounds To Play?</label>
-					<input type="number" id="numberRounds">
+					<input type="number" id="numberRounds" value="5">
 				</div>
 				<div id="choiceWrapper">
 
