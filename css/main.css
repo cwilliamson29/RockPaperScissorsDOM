@@ -9,8 +9,8 @@
   }
 @font-face {
     font-family: 'press_start_2pregular';
-    src: url('/img/pressstart2p-regular-webfont.woff2') format('woff2'),
-         url('/img/pressstart2p-regular-webfont.woff') format('woff');
+    src: url('img/pressstart2p-regular-webfont.woff2') format('woff2'),
+         url('img/pressstart2p-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -27,7 +27,7 @@
 ****ROBOT BOX BEGIN****
 **********************/
 #robot{
-    background-image: url("/img/robot.png");
+    background-image: url("img/robot.png");
     width:746px;
     height: 585px;
 }
