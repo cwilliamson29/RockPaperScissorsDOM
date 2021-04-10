@@ -45,15 +45,15 @@
 					<input type="number" id="numberRounds">
 				</div>
 				<div id="choiceWrapper">
-					<div class="choice" id="playerRock" onclick="lostWriter()">
+					<div class="choice" id="playerRock" onclick="clearWriter(lost, startWidth)">
 						<img src="/img/PlayerRock.png">
 					</div>
 
-					<div class="choice" id="playerPaper" onclick="wonWriter()">
+					<div class="choice" id="playerPaper" onclick="clearWriter(won, startWidth)">
 						<img src="/img/playerPaper.png">
 					</div>
 
-					<div class="choice" id="playerScissors" onclick="wonGameWriter()">
+					<div class="choice" id="playerScissors" onclick="clearWriter(wonGame, wonWidth)">
 						<img src="/img/playerScissors.png"
 					</div>
 				</div>
