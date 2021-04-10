@@ -87,16 +87,20 @@ function animation(gameStatus){
 function computerSelection(){
     computerNum = Math.floor(Math.random(3) * 3);
 
+    document.getElementById("computerChoiceIMG").src = "img/blank.png";
     if(computerNum === 0){
         computerChoice = 0;
+        document.getElementById("computerChoiceIMG").src = "img/compRock.png";
         return computerChoice;
 
     }else if(computerNum === 1){
         computerChoice = 1;
+        document.getElementById("computerChoiceIMG").src = "img/compPaper.png";
         return computerChoice;
 
     }else if(computerNum === 2){
         computerChoice = 2;
+        document.getElementById("computerChoiceIMG").src = "img/compScissors.png";
         return computerChoice;
     }
 }
@@ -122,12 +126,12 @@ document.getElementById("playerRock").addEventListener("click", function (){roun
 //PAPER SELECTOR
 document.getElementById("playerPaper").addEventListener("click", computerSelection);
 document.getElementById("playerPaper").addEventListener("click", function (){clearWriter(lost, startWidth)});
-document.getElementById("playerPaper").addEventListener("click", function (){roundWinner(rock)});
+document.getElementById("playerPaper").addEventListener("click", function (){roundWinner(paper)});
 
 //SCISSORS SELECTOR
 document.getElementById("playerScissors").addEventListener("click", computerSelection);
 document.getElementById("playerScissors").addEventListener("click", function (){clearWriter(lost, startWidth)});
-document.getElementById("playerScissors").addEventListener("click", function (){roundWinner(rock)});
+document.getElementById("playerScissors").addEventListener("click", function (){roundWinner(scissors)});
 
 
 //DETERMINE ROUND WINNER
