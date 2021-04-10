@@ -1,0 +1,145 @@
+@font-face {
+    font-family: 'press_start_2pregular';
+    src: url('/img/pressstart2p-regular-webfont.woff2') format('woff2'),
+         url('/img/pressstart2p-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/**********************
+****ROBOT BOX BEGIN****
+**********************/
+#robot{
+    background-image: url("/img/robot.png");
+    width:746px;
+    height: 736px;
+}
+#displayBox{
+    width: 240px;
+    height: 143px;
+    margin-top: 432px;
+    margin-left: 253px;
+    color:rgb(0, 255, 0);
+    border: 2px solid rgb(94, 94, 94);
+    border-radius: 5px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'press_start_2pregular';
+    background-color: rgb(31, 31, 31);
+    
+}
+#displayBox p{
+    text-align: center;
+}
+#scoreBox{
+    width: 255px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 249px;
+    /*background-color: red;
+    opacity: 50%;*/
+}
+#userCount{
+    float: left;
+    width: 50px;
+    height: 60px;
+    padding-top: 6px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    /*background-color: green;
+    opacity: 80%;*/
+}
+#scoreLabel{
+    
+    float: left;
+    width: 155px;;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*background-color: rgb(132, 0, 255);
+    opacity: 80%;*/
+}
+#userScoreLabel{
+    float: left;
+    display: flex;
+    margin-top: -4px;
+    justify-content: center;
+    width: 155px;
+    height: 25px;
+    /*background-color: purple;
+    opacity: 80%;*/
+}
+#userScoreLabel p{
+    color:rgb(0, 255, 0);
+    font-weight: bold;
+    font-family: 'press_start_2pregular';
+    font-size: 9px;
+}
+#compScoreLabel{
+    margin-top: 4px;
+    float: left;
+    width: 145px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    /*background-color: yellow;
+    opacity: 80%;*/
+}
+#compScoreLabel p{
+    color:rgb(0, 255, 0);
+    font-weight: bold;
+    font-family: 'press_start_2pregular';
+    font-size: 9px;
+    text-align: right;
+    padding-right: 10px;
+    /*transform: scale(.9, 1);*/
+}
+#compCount{
+    float: left;
+    width: 50px;
+    height: 60px;
+    padding-top: 6px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    /*background-color: green;
+    opacity: 80%;*/
+}
+.countBox{
+    /*float: right;*/
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-top: -8px;
+    color:rgb(0, 255, 0);
+    font-weight: bold;
+    font-family: 'press_start_2pregular';
+    font-size: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+/***********************
+****PLAYER BOX BEGIN****
+***********************/
+#PlayerChoiceBox{
+    margin-top: -55px;
+    width:350px;
+    height:100px;
+    background-color: green;
+    /*opacity: 80%;*/
+}
