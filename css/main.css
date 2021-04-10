@@ -1,3 +1,12 @@
+ html, body {
+    height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 @font-face {
     font-family: 'press_start_2pregular';
     src: url('/img/pressstart2p-regular-webfont.woff2') format('woff2'),
@@ -20,12 +29,12 @@
 #robot{
     background-image: url("/img/robot.png");
     width:746px;
-    height: 736px;
+    height: 585px;
 }
 #displayBox{
     width: 240px;
     height: 143px;
-    margin-top: 432px;
+    margin-top: 281px;
     margin-left: 253px;
     color:rgb(0, 255, 0);
     border: 2px solid rgb(94, 94, 94);
@@ -38,7 +47,10 @@
     background-color: rgb(31, 31, 31);
     
 }
-#displayBox p{
+#welcome{
+    width: 190px;
+    height: 45px;
+    padding-top: 10px;
     text-align: center;
 }
 #scoreBox{
@@ -139,7 +151,60 @@
 #PlayerChoiceBox{
     margin-top: -55px;
     width:350px;
-    height:100px;
-    background-color: green;
+    height:150px;
+    /*background-color: green;
     /*opacity: 80%;*/
+}
+#playRounds{
+    width: 100%;
+    height: 34px;
+    border-radius: 10px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#roundsLabel{
+    font-weight: bold;
+    font-family: 'press_start_2pregular';
+    font-size: 10px;
+    color:rgb(0, 255, 0);
+    /*transform: scale(3, 3);*/
+}
+#numberRounds{
+    margin-left: 5px;
+    padding-left: 5px;
+    text-align: center;
+    width: 35px;
+    font-weight: bold;
+    font-family: 'press_start_2pregular';
+    font-size: 18px;
+    color:rgb(0, 255, 0);
+    background-color: black;
+    border:none;
+    border-bottom: 2px solid darkgray;
+}
+#choiceWrapper{
+    width:350px;
+    height:115px;
+    margin-top: 20px;
+    display:flex;
+    flex-direction: row;
+    /*background-color: blue;*/
+
+}
+.choice{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 33%;
+    height: 115px;
+}
+.choice img{
+    width: 100%;
+    
+}
+.choice img:hover{
+    border-radius: 50%;
+    border: 4px solid black;
 }

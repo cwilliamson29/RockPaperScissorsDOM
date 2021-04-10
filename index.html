@@ -13,12 +13,12 @@
 			<!--ROBOT BOX BEGIN-->
 			<div id="robot">
 				<div id="displayBox">
-					<p>Choose Your<br><br>WEAPON!</p>
+					<div id="welcome"></div>
 				</div>
 				<div id="scoreBox">
 					<div id="userCount">
-						<div class="countBox">
-							<p>0</p>
+						<div id="playerWin" class="countBox">
+							<p></p>
 						</div>
 					</div>
 					<div id="scoreLabel">
@@ -30,8 +30,8 @@
 						</div>
 					</div>
 					<div id="compCount">
-						<div class="countBox">
-							<p>0</p>
+						<div id="computerWin" class="countBox">
+							<p></p>
 						</div>
 					</div>
 				</div>
@@ -40,22 +40,26 @@
 
 			<!--PLAYER BOX BEGIN-->
 			<div id="PlayerChoiceBox">
+				<div id="playRounds">
+					<label id="roundsLabel">Number Of Rounds To Play?</label>
+					<input type="number" id="numberRounds">
+				</div>
 				<div id="choiceWrapper">
-					<div id="playerRock">
-
+					<div class="choice" id="playerRock" onclick="lostWriter()">
+						<img src="/img/PlayerRock.png">
 					</div>
 
-					<div id="playerPaper">
-					
+					<div class="choice" id="playerPaper" onclick="wonWriter()">
+						<img src="/img/playerPaper.png">
 					</div>
 
-					<div id="playerScissors">
-
+					<div class="choice" id="playerScissors" onclick="wonGameWriter()">
+						<img src="/img/playerScissors.png"
 					</div>
 				</div>
 
 				<div id="choiceAlert">
-					
+
 				</div>
 			</div>
 		</div>
