@@ -1,7 +1,7 @@
 let playerWin = 0;
 let computerWin = 0;
+let rounds = 5;
 let roundTie;
-let roundsBox = Number(document.getElementById("numberRounds").value);
 
 let welcome = "Choose Your WEAPON!";
 let lost = "YOU LOST THIS ROUND!";
@@ -18,6 +18,29 @@ let speed = 110;
 
 let computerNum;
 let computerChoice;
+
+/*******************************
+****play button manipulation****
+********************************/
+
+let roundsLabel = document.getElementById("roundsLabel");
+roundsLabel.innerHTML = rounds + " ROUNDS LEFT TO PLAY!!"
+
+let startGame = document.getElementById("startGame");
+startGame.style.display = "";
+
+let playerChoices = document.getElementById("playerChoices");
+playerChoices.style.display = "none";
+
+let playAgain = document.getElementById("playAgain");
+playAgain.style.display = "none";
+
+startGame.addEventListener("click", function(){
+    startGame.style.display = "none";
+    playerChoices.style.display = "";
+})
+
+playAgain.addEventListener("click", location.reload.bind(location))
 
 //SCORE BOARD AND ROUNDS
 userScore = document.querySelector("#playerWin p");
@@ -54,11 +77,18 @@ playerScissorsAlert.addEventListener("mouseover", function (){document.querySele
 playerScissorsAlert.addEventListener("mouseout", function (){document.querySelector("#choiceAlert").innerHTML = choiceClearInner;});
 
 
+
+
+/******************************
+ *******ANIMATION EFFECT*******
+ *****************************/
 //PASS VARIABLE'S WONGAME, LOST, WON, AND WELCOME
 //INTO CLEARWRITER(ACTION, WIDTH) TO PRODUCE THE ANIMATION
 //WIDTH IS DECLARED WITH THE STARTWIDTH AND THE WONWIDTH VARIABLES
 
 let w = 0;
+let lineRepeat;
+
 function clearWriter(gameStatus, width){
     clearTimeout(timer);
     document.getElementById("welcome").innerHTML = "";
@@ -66,18 +96,19 @@ function clearWriter(gameStatus, width){
     w = 0;
     return animation(gameStatus);
 }
-
 function animation(gameStatus){
-    let lineRepeat = gameStatus;
-    function repeater(){
-        if(w < lineRepeat.length){
-            document.getElementById("welcome").innerHTML += lineRepeat.charAt(w);
-            w++;
-            timer = setTimeout(repeater, speed);
-        }
-    }
+    lineRepeat = gameStatus;
     return repeater()
 }
+function repeater(){
+    if(w < lineRepeat.length){
+        document.getElementById("welcome").innerHTML += lineRepeat.charAt(w);
+        w++;
+        timer = setTimeout(repeater, speed);
+    }
+}
+
+
 /**************************
  ****Computer Selection****
  *************************/
@@ -135,99 +166,58 @@ document.getElementById("playerScissors").addEventListener("click", function (){
 
 //DETERMINE ROUND WINNER
 function roundWinner(playerChoice){
-    if(playerChoice === computerChoice){
+    if(rounds === 0){
+            playerChoices.style.display = "none";
+            playAgain.style.display = "";
+            gameWinner();
+        
+    }else if(playerChoice === computerChoice){
         roundTie = true;
         return clearWriter(tie, startWidth);
+
     }else if(playerChoice === 0 && computerChoice === 1){   //rock loses to paper
-        roundTie = false;
+        roundsAdjust();
         computerScore.textContent = ++computerWin;
-        return clearWriter(lost, startWidth), roundsSelector();
+        return clearWriter(lost, startWidth)
 
     }else if(playerChoice === 0 && computerChoice === 2){   //rock beats scissors
-        roundTie = false;
+        roundsAdjust();
         userScore.textContent = ++playerWin;
-        return clearWriter(won, startWidth), roundsSelector();
+        return clearWriter(won, startWidth)
 
     }else if(playerChoice === 1 && computerChoice === 0){   //paper beats rock
-        roundTie = false;
+        roundsAdjust();
         userScore.textContent = ++playerWin;
-        return clearWriter(won, startWidth), roundsSelector();
+        return clearWriter(won, startWidth)
 
     }else if(playerChoice === 1 && computerChoice === 2){   //paper looses to scissors
-        roundTie = false;
+        roundsAdjust();
         computerScore.textContent = ++computerWin;
-        return clearWriter(lost, startWidth), roundsSelector();
+        return clearWriter(lost, startWidth)
 
     }else if(playerChoice === 2 && computerChoice === 0){   //scissors looses to rock
-        roundTie = false;
+        roundsAdjust();
         computerScore.textContent = ++computerWin;
-        return clearWriter(lost, startWidth), roundsSelector();
+        return clearWriter(lost, startWidth)
 
     }else if(playerChoice === 2 && computerChoice === 1){   //scissors beats paper
-        roundTie = false;
+        roundsAdjust();
         userScore.textContent = ++playerWin;
-        return clearWriter(won, startWidth), roundsSelector();
+        return clearWriter(won, startWidth);
     }
 }
-
-/**************************
- *****ROUNDS Selection*****
- *************************/
-
-function roundsSelector(){
-    //roundsBox = document.getElementById("numberRounds").value;
-    roundsCount = roundsBox;
-    if(roundsCount == 0){
-        return gameWinner()
-    }else{
-         --roundsCount;
-         --roundsBox;
-         document.getElementById("numberRounds").value = roundsBox;
-         //roundsBox = document.getElementById("numberRounds").value;
-         //roundsBox
-    }
+function roundsAdjust(){
+    --rounds;
+    roundTie = false;
+    roundsLabel.innerHTML = rounds + " ROUNDS LEFT TO PLAY!!"
 }
 
- /**************************
- ********GAME WINNER********
- **************************/
-
- function gameWinner(){
-     if(playerWin > computerWin){
+function gameWinner(){   
+    if(playerWin > computerWin){
         document.getElementById("computerChoiceIMG").src = "img/blank.png";
-
-        document.getElementById("playerRock").addEventListener("click", clearGame);
-
-        //PAPER SELECTOR
-        document.getElementById("playerPaper").addEventListener("click", clearGame);
-
-        //SCISSORS SELECTOR
-        document.getElementById("playerScissors").addEventListener("click", location.reload());
         return clearWriter(wonGame, wonWidth)
-     }else if(playerWin < computerWin){
+    }else if(playerWin < computerWin){
         document.getElementById("computerChoiceIMG").src = "img/blank.png";
         return clearWriter(lostGame, wonWidth)
-     }
- }
-
-/**************************
- ********CLEAR GAME********
- **************************/
-function clearGame(){
-    document.getElementById("numberRounds").value = 5;
-    playerWin = 0;
-    computerWin = 0;
-
-    //document.getElementById("playerRock").addEventListener("click", computerSelection);
-    //document.getElementById("playerRock").addEventListener("click", function (){roundWinner(rock)});
-
-    //PAPER SELECTOR
-    //document.getElementById("playerPaper").addEventListener("click", computerSelection);
-    //document.getElementById("playerPaper").addEventListener("click", function (){roundWinner(paper)});
-
-    //SCISSORS SELECTOR
-    //document.getElementById("playerScissors").addEventListener("click", computerSelection);
-    //document.getElementById("playerScissors").addEventListener("click", function (){roundWinner(scissors)});
+    } 
 }
-
-//clearWriter(welcome, startWidth);
