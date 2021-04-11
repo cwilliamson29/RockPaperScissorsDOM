@@ -198,7 +198,7 @@
     border:none;
     border-bottom: 2px solid darkgray;
 }
-#choiceWrapper{
+.choiceWrapper{
     order: 2;
     width:350px;
     height:115px;
@@ -206,7 +206,33 @@
     display:flex;
     flex-direction: row;
     /*background-color: blue;*/
-
+}
+#playerChoices{
+    display:flex;
+    flex-direction: row;
+}
+.buttonBox{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border: 4px solid rgb(0, 255, 0);
+    border-radius: 20px;
+    font-weight: bold;
+    font-family: 'press_start_2pregular';
+    font-size: 27px;
+    color:rgb(0, 255, 0);
+}
+.buttonBox:hover{
+    background-color: rgb(0, 255, 0);
+    border: 4px solid black;
+    border-radius: 20px;
+    font-weight: bold;
+    font-family: 'press_start_2pregular';
+    font-size: 27px;
+    color:black;
 }
 .choice{
     display: flex;

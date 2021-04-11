@@ -7,7 +7,7 @@
         	
 	</head>
 	
-	<body onload="clearGame(), clearWriter(welcome, startWidth)">
+	<body onload="clearWriter(welcome, startWidth)">
 		<div id="container">
 
 			<!--ROBOT BOX BEGIN-->
@@ -44,28 +44,38 @@
 			<!--PLAYER BOX BEGIN-->
 			<div id="PlayerChoiceBox">
 				<div id="playRounds">
-					<label id="roundsLabel">Number Of Rounds To Play?</label>
-					<input type="number" id="numberRounds" value="5">
+					<p id="roundsLabel"></p>
+					
 				</div>
-				<div id="choiceWrapper">
+				<div class="choiceWrapper">
 
-					<div class="choice" id="playerRock">
-						<img src="img/PlayerRock.png">
+					<div id="startGame" class="buttonBox">
+						<p>START GAME!</p>
 					</div>
 
-					<div class="choice" id="playerPaper">
-						<img src="img/playerPaper.png">
+					<div id="playerChoices">
+						<div class="choice" id="playerRock">
+							<img src="img/PlayerRock.png">
+						</div>
+
+						<div class="choice" id="playerPaper">
+							<img src="img/playerPaper.png">
+						</div>
+
+						<div class="choice" id="playerScissors">
+							<img src="img/playerScissors.png">
+						</div>
 					</div>
 
-					<div class="choice" id="playerScissors">
-						<img src="img/playerScissors.png">
+					<div id="playAgain" class="buttonBox">
+						<p>PLAY AGAIN?</p>
 					</div>
-
 				</div>
 
 				<div id="choiceAlert">
 					
 				</div>
+			
 			</div>
 		</div>
 
