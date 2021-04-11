@@ -1,12 +1,10 @@
 let playerWin = 0;
 let computerWin = 0;
 let rounds = 5;
-let roundTie;
 
 let welcome = "Choose Your WEAPON!";
 let lost = "YOU LOST THIS ROUND!";
 let won = "YOU WON THIS ROUND!";
-let tie = "YOU TIED THIS ROUND!"
 let wonGame = "YOU WON THE GAME!";
 let lostGame = "YOU LOST THE GAME!";
 
@@ -172,8 +170,7 @@ function roundWinner(playerChoice){
             gameWinner();
         
     }else if(playerChoice === computerChoice){
-        roundTie = true;
-        return clearWriter(tie, startWidth);
+        return computerSelection(), roundWinner(playerChoice);
 
     }else if(playerChoice === 0 && computerChoice === 1){   //rock loses to paper
         roundsAdjust();
@@ -208,7 +205,6 @@ function roundWinner(playerChoice){
 }
 function roundsAdjust(){
     --rounds;
-    roundTie = false;
     roundsLabel.innerHTML = rounds + " ROUNDS LEFT TO PLAY!!"
 }
 
